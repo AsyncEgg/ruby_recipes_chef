@@ -1,5 +1,5 @@
 
-def food(food_name,ingr='',diet='',health='',cuisine_type='',type='')
+def food(food_name,ingr='',diet='',health='',cuisine_type='',type='',grab='label')
     require 'uri'
     require 'net/http'
     require 'openssl'
@@ -20,12 +20,12 @@ def food(food_name,ingr='',diet='',health='',cuisine_type='',type='')
     if response.code == "200"
       result = JSON.parse(response.body)
 
-      puts result['hits'][0]['recipe']['label']
+      puts result['hits'][0]['recipe'][grab]
 
     else
       puts "ERROR!!!: #{response.code} \n #{response}"
     end
 end
   
-
+puts "Enter a food name and add diffrent queiries"
 food(food_name='fish',diet='&diet=low-fat')
