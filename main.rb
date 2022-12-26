@@ -1,5 +1,5 @@
 
-def food(food_name,ingr='',diet='',health='',cuisine_type='',type='',grab='label')
+def food(food_name,ingr='',diet='',health='',cuisine_type='',type='',dish_type'',grab='label',calories='',time='',excluded='')
     require 'uri'
     require 'net/http'
     require 'openssl'
@@ -8,7 +8,7 @@ def food(food_name,ingr='',diet='',health='',cuisine_type='',type='',grab='label
     app_key = '' #enter your app key
     app_id = '' #enter your app id
 
-    url = URI("https://api.edamam.com/api/recipes/v2?type=public&q=#{food_name}&app_id=#{app_id}&app_key=#{app_key}#{ingr}#{diet}#{health}#{cuisine_type}#{type}&dishType=Soup&calories=100-1000&time=1-120&excluded=peanuts&random=true")
+    url = URI("https://api.edamam.com/api/recipes/v2?type=public&q=#{food_name}&app_id=#{app_id}&app_key=#{app_key}#{ingr}#{diet}#{health}#{cuisine_type}#{type}#{dish_type}#{calories}#{time}#{excluded}&random=true")
   
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
